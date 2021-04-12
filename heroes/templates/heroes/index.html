@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hero Index</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1> List of Heroes</h1>
+        <ul>
+            {% for hero in all_heroes %}
+            <li><h2> {{hero}}</h2></li>
+                <a href="{% url 'heroes:detail' hero.id %}"> See more info</a>
+                <a href="{% url 'heroes:delete' hero.id%}"> Remove hero.</a>
+                <a href="{% url 'heroes:update' hero.id %}"> Update hero</a>
+            {% endfor %}
+            </ul>
+    </div>
+    <div>
+        <div class="container">
+            <a href="{% url 'heroes:create_new_hero' %}"> CREATE A NEW HERO</a>
+        </div>
+    </div>
+
+</body>
+</html>
